@@ -2,7 +2,7 @@ package experiment1;
 
 import java.util.Scanner;
 
-public class number {
+public class Number {
     private int n;
     private StringBuilder sb;
     Scanner sc=new Scanner(System.in);
@@ -26,7 +26,7 @@ public class number {
     }
 
     public static void main(String[] args) {
-        number n=new number();
+        Number n=new Number();
         for (int i=0;i<10;i++){
             n.in();
             n.out();

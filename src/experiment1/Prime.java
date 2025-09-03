@@ -3,12 +3,12 @@ package experiment1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class prime {
+public class Prime {
     int n;
     int[] elist;
     Scanner sc=new Scanner(System.in);
 
-    public prime(){
+    public Prime(){
         n=sc.nextInt();
         elist=new int[n+1];
 
@@ -39,7 +39,7 @@ public class prime {
     }
 
     public static void main(String[] args) {
-        prime p=new prime();
+        Prime p=new Prime();
         p.PrintAll();
         p.close();
     }

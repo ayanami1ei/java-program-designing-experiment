@@ -2,7 +2,7 @@ package experiment1;
 
 import java.util.Scanner;
 
-public class eletricity {
+public class Eletricity {
     private Scanner sc=new Scanner(System.in);
     private double total,price;
 
@@ -25,7 +25,7 @@ public class eletricity {
     }
 
     public static void main(String[] args) {
-        eletricity e=new eletricity();
+        Eletricity e=new Eletricity();
 
         for (int i=0;i<10;++i){
             e.in();
