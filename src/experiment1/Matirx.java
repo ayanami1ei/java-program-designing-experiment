@@ -100,6 +100,7 @@ public class Matirx {
         Matirx mat=new Matirx(10,10,5);
         mat.print();
         var answer = mat.find();
+        System.out.println("前五大的数为：");
         mat.print(answer);
     }
 }
