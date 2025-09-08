@@ -10,10 +10,10 @@ import java.util.*;
 
 public class Matrix {
     private int row;//行数
-    private final int col;//列数
-    private final float[] mat;//矩阵数组
-    private final float[] window;//滑窗数组
-    private final int LastBig;//要计算前LastBig大的数
+    private int col;//列数
+    private float[] mat;//矩阵数组
+    private float[] window;//滑窗数组
+    private int LastBig;//要计算前LastBig大的数
 
     public Matrix(int row, int col, int lastBig){//含参构造函数，传入行数、列数、LastBig
         this.row=row;
@@ -28,6 +28,7 @@ public class Matrix {
                 setIndex(i,j, rand.nextFloat());
 
         System.arraycopy(mat, 0, window, 0, LastBig);
+        sort(0,LastBig-1);//对滑窗排序
     }
 
     private void insert(int index,float n){//插入方法，用于向滑窗数组插入新数
@@ -67,9 +68,6 @@ public class Matrix {
     }
 
     public float[] find(){//滑窗法寻找前LastBig大的数
-        System.arraycopy(mat, 0, window, 0, LastBig);//滑窗初始化为矩阵前LastBig位
-
-        sort(0,LastBig-1);//先对滑窗排序
         int p=LastBig;
 
         while(p<mat.length){//不断寻找比滑窗内数大的数，找到后插入合适位置
@@ -99,17 +97,21 @@ public class Matrix {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        int r=10,c=10,lb=5;
-        Matrix mat=new Matrix(r,c,lb);
-
-        for (int i=0;i<r;++i){//打印原始矩阵
-            for (int j=0;j<c;++j){
-                System.out.print(mat.atIndex(i,j)+" ");
+    public void print(){//打印原始矩阵
+        for (int i=0;i<row;++i){
+            for (int j=0;j<col;++j){
+                System.out.print(atIndex(i,j)+" ");
             }
             System.out.println();
         }
         System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int r=100,c=100,lb=5;
+        Matrix mat=new Matrix(r,c,lb);
+        System.out.println("原始数组为：");
+        mat.print();
 
         var answer = mat.find();
         System.out.println("前五大的数为：");
