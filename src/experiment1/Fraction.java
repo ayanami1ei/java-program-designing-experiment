@@ -4,44 +4,8 @@ package experiment1;
 求出这个数列的前30项之和*/
 
 @SuppressWarnings("ClassEscapesDefinedScope")
-public class Flist{//分数数列类
-    private final Fraction[] flist;
-    private int k;//分母为k的n次方，n为该数在数列中的索引
 
-    public Flist(int n,int k){//含参构造函数，传入数列长度和k，初始化数列
-        this.k=k;
-        flist=new Fraction[n];
-
-        for (int i=0;i<n;++i){
-            flist[i]=new Fraction(i+1, (int)Math.pow(k,i));
-        }
-    }
-
-    public Fraction getSum(){//计算总和方法
-        Fraction sum=new Fraction();
-
-        for (var x:flist){
-            sum=sum.add(x);
-        }
-
-        return sum;
-    }
-
-    public static void main(String[] args) {
-        Flist fl=new Flist(30,3);
-        fl.getSum().print();
-    }
-
-    public int getK() {
-        return k;
-    }
-
-    public void setK(int k) {
-        this.k = k;
-    }
-}
-
-class Fraction {//分数类
+public class Fraction {//分数类
     private int numerator,denominator;
     public Fraction(){//默认构造函数，初始化为符合分数写法的0
         numerator=0;
@@ -84,3 +48,39 @@ class Fraction {//分数类
     }
 }
 
+class Flist{//分数数列类
+    private final Fraction[] flist;
+    private int k;//分母为k的n次方，n为该数在数列中的索引
+
+    public Flist(int n,int k){//含参构造函数，传入数列长度和k，初始化数列
+        this.k=k;
+        flist=new Fraction[n];
+
+        for (int i=0;i<n;++i){
+            flist[i]=new Fraction(i+1, (int)Math.pow(k,i));
+        }
+    }
+
+    public Fraction getSum(){//计算总和方法
+        Fraction sum=new Fraction();
+
+        for (var x:flist){
+            sum=sum.add(x);
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Flist fl=new Flist(30,3);
+        fl.getSum().print();
+    }
+
+    public int getK() {
+        return k;
+    }
+
+    public void setK(int k) {
+        this.k = k;
+    }
+}
