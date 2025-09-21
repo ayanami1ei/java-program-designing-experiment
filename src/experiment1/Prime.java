@@ -7,30 +7,37 @@ import java.util.Scanner;
 并输出所有素数*/
 
 public class Prime {
-    int n;
-    int[] enlist;//埃氏表
+    //埃氏表大小上限
+    private int n;
+    //埃氏表
+    private int[] eraList;
 
-    public Prime(Scanner sc){//从键盘读取上限并构建埃氏表
+    //从键盘读取上限并构建埃氏表
+    public Prime(Scanner sc){
         n=sc.nextInt();
-        enlist =new int[n+1];
+        eraList =new int[n+1];
 
-        Arrays.fill(enlist,1);//初始化数组全为1
+        //初始化数组全为1
+        Arrays.fill(eraList,1);
 
-        enlist[0]=0;
-        enlist[1]=0;//0、1不是素数
+        //0、1不是素数
+        eraList[0]=0;
+        eraList[1]=0;
 
         for (int i=2;i<=n;++i){
-            if (enlist[i]==1){//若该数是素数，则其倍数不是素数
+            //若该数是素数，则其倍数不是素数
+            if (eraList[i]==1){
                 for (int j=i*2;j<=n;j+=i){
-                    enlist[j]=0;
+                    eraList[j]=0;
                 }
             }
         }
     }
 
-    public void PrintAll(){//输出素数
+    //输出素数
+    public void printAll(){
         for (int i=0;i<=n;++i){
-            if (enlist[i]==1){
+            if (eraList[i]==1){
                 System.out.print(i+" ");
             }
         }
@@ -39,7 +46,7 @@ public class Prime {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         Prime p=new Prime(sc);
-        p.PrintAll();
+        p.printAll();
         sc.close();
     }
 }

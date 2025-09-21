@@ -9,13 +9,16 @@ import java.util.Scanner;
 编写程序，用户从键盘输入用电量（要求在不终止程序的情况下能循环10次从键盘读入10个数字：58、52、230、70、80、89、510、60、1、10），程序输出用户应缴纳的电费。*/
 
 public class Electricity {
-    private double total,price;//总用电量和电费
+    //总用电量和电费
+    private double total,price;
 
-    public void in(Scanner sc){//输入方法
+    //输入方法
+    public void in(Scanner sc){
         total=sc.nextDouble();
     }
 
-    public double getPrice(){//电费计算方法
+    //电费计算方法
+    public double getPrice(){
         if (total<=50.0){
             return price=total*0.56;
         }
@@ -25,19 +28,18 @@ public class Electricity {
         return price=50*0.56+70*0.59+(total-220)*0.66;
     }
 
-    public static void main(String[] args) {//程序入口
+    public static void main(String[] args) {
+        //创建Scanner对象和Electricity对象
         Scanner sc=new Scanner(System.in);
-        Electricity e=new Electricity();//创建Scanner对象和Electricity对象
+        Electricity e=new Electricity();
 
-        for (int i=0;i<10;++i){//循环10次不中断程序
+        //循环10次不中断程序
+        for (int i=0;i<10;++i){
             e.in(sc);
-            System.out.println("电费为"+e.getPrice());
+            System.out.printf("电费为%.2f\n",e.getPrice());
         }
 
-        sc.close();//关闭Scanner对象
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+        //关闭Scanner对象
+        sc.close();
     }
 }

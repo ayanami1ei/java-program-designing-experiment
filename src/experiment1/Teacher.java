@@ -70,4 +70,6 @@ public class Teacher {
         t.setOffice("eee");
         System.out.println("office:"+t.getOffice());
     }
+
+
 }

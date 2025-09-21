@@ -7,31 +7,39 @@ import java.util.Scanner;
 要求在不终止程序的情况下能循环10次从键盘读入*/
 
 public class Number {
-    private int n;
+    //原始数字
+    private String n;
+    //StringBuilder工具
     private StringBuilder sb;
 
-    public void in(Scanner sc){//输入函数并转为字符串
-        n=sc.nextInt();
-        sb=new StringBuilder(String.valueOf(n));
+    //输入函数并转为字符串
+    public void in(Scanner sc) {
+        n = sc.next();
+        sb = new StringBuilder(n);
     }
 
-    public void reverse(){//字符串反转并输出
+    //字符串反转并输出
+    public void reverse(){
         sb.reverse();
-        System.out.println(sb.toString());
+        n=sb.toString();
+        System.out.println(n);
     }
 
-    public void out(){//输出原始数据
+    //输出原始数据
+    public void out(){
         System.out.println(n);
     }
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         Number n=new Number();
-        for (int i=0;i<10;i++){
+
+        for (int i=0;i<10;++i){
             n.in(sc);
             n.out();
             n.reverse();
         }
+
         sc.close();
     }
 }
